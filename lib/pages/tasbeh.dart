@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:namozni_organaman/pages/home_page.dart';
@@ -18,6 +19,7 @@ class Tasbeh extends StatefulWidget {
 class _TasbehState extends State<Tasbeh> {
   late FixedExtentScrollController _controller;
   int jami = 0;
+  late final AudioCache _auidoCache;
 
   double foiz = 0.01;
   int count = 0;
@@ -36,6 +38,7 @@ class _TasbehState extends State<Tasbeh> {
   void initState() {
     super.initState();
     _controller = FixedExtentScrollController();
+    _auidoCache = AudioCache(prefix: "assets/music/");
   }
 
   @override
@@ -46,14 +49,14 @@ class _TasbehState extends State<Tasbeh> {
           "Tasbeh",
           style: TextStyle(fontSize: 22),
         ),
-
         actions: [
           IconButton(
             onPressed: () {
+
               setState(() {
                 count = 0;
                 jami = 0;
-                foiz=0;
+                foiz = 0;
               });
             },
             icon: Icon(Icons.cached),
@@ -76,7 +79,8 @@ class _TasbehState extends State<Tasbeh> {
                         margin: EdgeInsets.only(left: 10),
                         child: Center(
                           child: Text(
-                            "Jami: $jami",textAlign: TextAlign.center,
+                            "Jami: $jami",
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: stringPage().maincolor,
                                 fontSize: 55,
@@ -134,7 +138,8 @@ class _TasbehState extends State<Tasbeh> {
                             color: stringPage().maincolor,
                             strokeWidth: 20,
                           ),
-                          onTap: () {
+                          onTap: () async {
+                            await _auidoCache.play("music.mp3",volume: 50,);
                             final nextIndex = _controller.selectedItem + 1;
                             _controller.animateToItem(nextIndex,
                                 duration: Duration(seconds: 1),
@@ -152,7 +157,9 @@ class _TasbehState extends State<Tasbeh> {
                                 count = 0;
                               }
                             });
-                            if (count % 33 == 0 && count != 0 && jami % 33==0) {
+                            if (count % 33 == 0 &&
+                                count != 0 &&
+                                jami % 33 == 0) {
                               Vibrate.vibrate();
                             }
                           },
@@ -171,7 +178,8 @@ class _TasbehState extends State<Tasbeh> {
                             ),
                           ),
                         ),
-                        onTap: () {
+                        onTap: () async {
+                          await _auidoCache.play("music.mp3",volume: 50,);
                           final nextIndex = _controller.selectedItem + 1;
                           _controller.animateToItem(nextIndex,
                               duration: Duration(seconds: 1),
@@ -193,7 +201,6 @@ class _TasbehState extends State<Tasbeh> {
                             Vibrate.vibrate();
                           }
                         },
-
                       ),
                     ],
                   ),
