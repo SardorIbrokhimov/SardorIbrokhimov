@@ -13,7 +13,7 @@ import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class stringPage {
-  String xatolar = "";
+  String xatolar = "Xatolar";
   String duolar = """SANO DUOSI
 
   Subhanakallouhumma va bihamdika va tabarokasmuka va taa’la jadduka va la ilaha g‘oyruk.
