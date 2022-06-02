@@ -6,6 +6,7 @@ import 'package:namozni_organaman/pages/maruzalar.dart';
 import 'package:namozni_organaman/pages/namoz_time.dart';
 import 'package:namozni_organaman/pages/strings.dart';
 import 'package:namozni_organaman/pages/tasbeh.dart';
+import 'package:namozni_organaman/pages/xatoliklar.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -91,6 +92,13 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => MaruzalarPage(),
+                            ),
+                          );
+                        }else if (index == 6) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Xatoliklar(),
                             ),
                           );
                         }
