@@ -22,10 +22,27 @@ class _TasbehState extends State<Tasbeh> {
   late final AudioCache _auidoCache;
 
   double foiz = 0.01;
+
+  sounds(bosildi) {
+    if (bosildi) {
+      return _auidoCache.play("music.mp3", volume: 0);
+    } else {
+      return _auidoCache.play("music.mp3");
+    }
+  }
+
   int count = 0;
 
   forVibration() {
     HapticFeedback.heavyImpact();
+  }
+
+  foricon(ovoz) {
+    if (ovoz) {
+      return mute;
+    } else {
+      return notmute;
+    }
   }
 
   @override
@@ -41,6 +58,10 @@ class _TasbehState extends State<Tasbeh> {
     _auidoCache = AudioCache(prefix: "assets/music/");
   }
 
+  bool sound = true;
+  Icon mute = Icon(Icons.volume_off);
+  Icon notmute = Icon(Icons.volume_up);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,10 +70,17 @@ class _TasbehState extends State<Tasbeh> {
           "Tasbeh",
           style: TextStyle(fontSize: 22),
         ),
+        leading: IconButton(
+          onPressed: (() {
+            setState(() {
+              sound = !sound;
+            });
+          }),
+          icon: foricon(sound),
+        ),
         actions: [
           IconButton(
             onPressed: () {
-
               setState(() {
                 count = 0;
                 jami = 0;
@@ -108,8 +136,9 @@ class _TasbehState extends State<Tasbeh> {
                                 width: MediaQuery.of(context).size.width / 3,
                                 height: MediaQuery.of(context).size.width / 3,
                                 decoration: BoxDecoration(
-                                    color: stringPage().screencolor,
-                                    borderRadius: BorderRadius.circular(100)),
+                                  color: stringPage().screencolor,
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
                               );
                             },
                           ),
@@ -139,7 +168,7 @@ class _TasbehState extends State<Tasbeh> {
                             strokeWidth: 20,
                           ),
                           onTap: () async {
-                            await _auidoCache.play("music.mp3",volume: 50,);
+                            await sounds(sound);
                             final nextIndex = _controller.selectedItem + 1;
                             _controller.animateToItem(nextIndex,
                                 duration: Duration(seconds: 1),
@@ -179,7 +208,7 @@ class _TasbehState extends State<Tasbeh> {
                           ),
                         ),
                         onTap: () async {
-                          await _auidoCache.play("music.mp3",volume: 50,);
+                          await await sounds(sound);
                           final nextIndex = _controller.selectedItem + 1;
                           _controller.animateToItem(nextIndex,
                               duration: Duration(seconds: 1),
