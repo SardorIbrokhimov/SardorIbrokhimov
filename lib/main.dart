@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:namozni_organaman/pages/Quron_page.dart';
 import 'package:namozni_organaman/pages/duolar.dart';
 import 'package:namozni_organaman/pages/forMen.dart';
 import 'package:namozni_organaman/pages/forWomen.dart';
 import 'package:namozni_organaman/pages/home_page.dart';
 import 'package:namozni_organaman/pages/namoz_time.dart';
+import 'package:namozni_organaman/pages/quron_pdf.dart';
 import 'package:namozni_organaman/pages/tasbeh.dart';
+import 'package:namozni_organaman/pages/webview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +31,9 @@ class MyApp extends StatelessWidget {
         ForMen.id: (context) => ForMen(),
         ForWomen.id: (context) => ForWomen(),
         Tasbeh.id: (context) => Tasbeh(),
+        QuranPage.id: (context) => QuranPage(),
+        QuranPdf.id: (context) => QuranPdf(),
+        Mp3.id: (context) => Mp3(),
       },
     );
   }

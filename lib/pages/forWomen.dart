@@ -39,7 +39,7 @@ class _ForWomenState extends State<ForWomen> {
                               builder: (context) => ForVideo(
                                   name: stringPage().nomlari[index],
                                   title: "bochi12F45A",
-                                  about: "Lorem Ipsum"),
+                                  about: stringPage().duolar),
                             ),
                           );
                         } else if (index == 1) {
@@ -49,7 +49,7 @@ class _ForWomenState extends State<ForWomen> {
                               builder: (context) => ForVideo(
                                   name: stringPage().nomlari[index],
                                   title: "nXauZnrdYPM",
-                                  about: "Lorem Ipsum"),
+                                  about:  stringPage().duolar),
                             ),
                           );
                         } else if (index == 2) {
@@ -59,7 +59,7 @@ class _ForWomenState extends State<ForWomen> {
                               builder: (context) => ForVideo(
                                   name: stringPage().nomlari[index],
                                   title: "teLfhz4uqXU",
-                                  about: "Lorem Ipsum"),
+                                  about:  stringPage().duolar),
                             ),
                           );
                         } else if (index == 3) {
@@ -69,7 +69,7 @@ class _ForWomenState extends State<ForWomen> {
                               builder: (context) => ForVideo(
                                   name: stringPage().nomlari[index],
                                   title: "_P8bCizQyh4",
-                                  about: "Lorem Ipsum"),
+                                  about:  stringPage().duolar),
                             ),
                           );
                         } else if (index == 4) {
@@ -79,7 +79,7 @@ class _ForWomenState extends State<ForWomen> {
                               builder: (context) => ForVideo(
                                   name: stringPage().nomlari[index],
                                   title: "Euff3FykivQ",
-                                  about: "Lorem Ipsum"),
+                                  about:  stringPage().duolar),
                             ),
                           );
                         }

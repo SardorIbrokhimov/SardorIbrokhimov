@@ -18,6 +18,9 @@ class Tasbeh extends StatefulWidget {
 
 class _TasbehState extends State<Tasbeh> {
   late FixedExtentScrollController _controller;
+
+  String zikrlar = stringPage().zikr1;
+
   int jami = 0;
   late final AudioCache _auidoCache;
 
@@ -30,7 +33,7 @@ class _TasbehState extends State<Tasbeh> {
       return _auidoCache.play("music.mp3");
     }
   }
-
+int son=0;
   int count = 0;
 
   forVibration() {
@@ -85,6 +88,8 @@ class _TasbehState extends State<Tasbeh> {
                 count = 0;
                 jami = 0;
                 foiz = 0;
+                son=0;
+                zikrlar = stringPage().zikr1;
               });
             },
             icon: Icon(Icons.cached),
@@ -105,15 +110,35 @@ class _TasbehState extends State<Tasbeh> {
                     Expanded(
                       child: Container(
                         margin: EdgeInsets.only(left: 10),
-                        child: Center(
-                          child: Text(
-                            "Jami: $jami",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: stringPage().maincolor,
-                                fontSize: 55,
-                                fontWeight: FontWeight.w900),
-                          ),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              child: Text(
+                                "Jami: $jami",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: stringPage().maincolor,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.12,
+                            ),
+                            Container(
+                              child: Text(
+                                zikrlar,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: stringPage().maincolor,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -174,6 +199,7 @@ class _TasbehState extends State<Tasbeh> {
                                 duration: Duration(seconds: 1),
                                 curve: Curves.easeOut);
                             setState(() {
+                              son++;
                               jami++;
                               count++;
                               foiz += 0.01;
@@ -184,12 +210,35 @@ class _TasbehState extends State<Tasbeh> {
                               if (count == 99) {
                                 Vibrate.vibrate();
                                 count = 0;
+                                son=0;
                               }
                             });
                             if (count % 33 == 0 &&
                                 count != 0 &&
                                 jami % 33 == 0) {
                               Vibrate.vibrate();
+                            }
+                            if (son%33==0&&son!=0) {
+                              setState(() {
+                                zikrlar = stringPage().zikr2;
+                              });
+                            }
+                            if (son%66==0&&son!=0) {
+                              setState(() {
+                                zikrlar = stringPage().zikr3;
+                              });
+                            }
+                            if (son%99==0&&son!=0) {
+                              setState(() {
+                                zikrlar = stringPage().zikr1;
+                              });
+                            }
+                            if (son==0){
+                              setState(() {
+                                zikrlar=stringPage().zikr1;
+                              });
+
+
                             }
                           },
                         ),
@@ -214,6 +263,7 @@ class _TasbehState extends State<Tasbeh> {
                               duration: Duration(seconds: 1),
                               curve: Curves.easeOut);
                           setState(() {
+                            son++;
                             jami++;
                             count++;
                             foiz += 0.01;
@@ -224,6 +274,7 @@ class _TasbehState extends State<Tasbeh> {
                             if (count == 99) {
                               Vibrate.vibrate();
                               count = 0;
+                              son=0;
                             }
                           });
                           if (count % 33 == 0 && count != 0) {

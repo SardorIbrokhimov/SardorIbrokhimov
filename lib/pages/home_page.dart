@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:namozni_organaman/pages/Quron_page.dart';
 import 'package:namozni_organaman/pages/duolar.dart';
 import 'package:namozni_organaman/pages/forMen.dart';
 import 'package:namozni_organaman/pages/forWomen.dart';
 import 'package:namozni_organaman/pages/maruzalar.dart';
 import 'package:namozni_organaman/pages/namoz_time.dart';
+import 'package:namozni_organaman/pages/quron_pdf.dart';
 import 'package:namozni_organaman/pages/strings.dart';
 import 'package:namozni_organaman/pages/tasbeh.dart';
 import 'package:namozni_organaman/pages/xatoliklar.dart';
@@ -28,13 +30,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.info,
-              color: Colors.white,
-            ),
-          ),
+
         ],
         title: Text(stringPage().homename),
         centerTitle: true,
@@ -99,6 +95,13 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => Xatoliklar(),
+                            ),
+                          );
+                        }else if (index == 7) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuranPdf(),
                             ),
                           );
                         }

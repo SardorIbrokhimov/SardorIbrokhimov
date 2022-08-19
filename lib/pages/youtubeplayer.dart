@@ -67,7 +67,8 @@ class _ForVideoState extends State<ForVideo> {
     return YoutubePlayer(
       controller: _controller1,
       showVideoProgressIndicator: true,
-      progressIndicatorColor: Colors.red,
+      progressIndicatorColor: Colors.purple,
+
     );
   }
 

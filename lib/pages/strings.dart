@@ -340,6 +340,9 @@ Mazmuni: «Ey Robbimiz, bizga bu dunyoda ham, oxiratda ham yaxshilikni bergin va
   String home = "";
 
   List manfoto = ["assets/images"];
+  String zikr1="Subhanalloh";
+  String zikr2="Alhamdulillah";
+  String zikr3="Allohu akbar";
 
   List list = [
     "assets/images/time.png",
@@ -349,6 +352,7 @@ Mazmuni: «Ey Robbimiz, bizga bu dunyoda ham, oxiratda ham yaxshilikni bergin va
     "assets/images/tasbeh.png",
     "assets/images/maruza.png",
     "assets/images/xatolik.png",
+    "assets/images/quran.png"
   ];
 
   List names = [
@@ -376,6 +380,7 @@ Mazmuni: «Ey Robbimiz, bizga bu dunyoda ham, oxiratda ham yaxshilikni bergin va
     "Tasbeh",
     "Ma'ruzalar",
     "Namozdagi xatoliklar",
+    "Quron",
   ];
 
   List nomlari = [
